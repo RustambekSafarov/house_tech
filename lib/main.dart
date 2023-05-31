@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
               theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
               darkTheme: FlexThemeData.dark(scheme: FlexScheme.blueWhale),
               themeMode: _themeManager.themeMode,
-              title: 'Mondelux',
+              title: 'HouseTech',
               routerConfig: GoRouter(
                 initialLocation: '/home',
                 routes: MobileNavigations.route,
@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
             ],
             child: MaterialApp.router(
               debugShowCheckedModeBanner: false,
-              title: 'Mondelux.uz',
+              title: 'HouseTech',
               theme: FlexThemeData.light(scheme: FlexScheme.blumineBlue),
               darkTheme: FlexThemeData.dark(scheme: FlexScheme.blueWhale),
               themeMode: _themeManager.themeMode,

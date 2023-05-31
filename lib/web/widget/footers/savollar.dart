@@ -4,7 +4,7 @@ import '/web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../footer.dart';
+import 'footer.dart';
 
 class Savollar extends StatelessWidget {
   const Savollar({super.key});

@@ -88,7 +88,7 @@ class ShoppingCardScreen extends StatelessWidget {
                                             height: 200,
                                             width: 220,
                                             child: Image.network(
-                                              'https://ogabek007.pythonanywhere.com/' + snapshot.data!['cart'][index]['prodouct']['img_url'],
+                                              snapshot.data!['cart'][index]['prodouct']['img_url'],
                                               fit: BoxFit.cover,
                                               loadingBuilder: (context, child, loadingProgress) {
                                                 if (loadingProgress == null) {

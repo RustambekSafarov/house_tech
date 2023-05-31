@@ -1,8 +1,10 @@
 // ignore_for_file: must_be_immutable
+library currency_formatter;
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:currency_formatter/currency_formatter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,6 +24,10 @@ class NewProducts extends StatefulWidget with ChangeNotifier {
 class _IntroPageState extends State<NewProducts> {
   final controller = PageController();
   int activeIndex = 0;
+  CurrencyFormatterSettings som = CurrencyFormatterSettings(
+    symbol: '',
+    thousandSeparator: ' ',
+  );
 
   void _onDotClicked(int index) {
     // Move to the clicked dot's page
@@ -61,7 +67,7 @@ class _IntroPageState extends State<NewProducts> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
                                   child: Image.network(
-                                    'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
+                                    snapshot.data![index]['img_url'],
                                     loadingBuilder: (context, child, loadingProgress) {
                                       if (loadingProgress == null) {
                                         return child;
@@ -95,9 +101,12 @@ class _IntroPageState extends State<NewProducts> {
                                 height: 15,
                               ),
                               Text(
-                                '${snapshot.data![index]['price']} so`m',
+                                '${CurrencyFormatter.format(snapshot.data![index]['price'], som)} so`m',
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 16,
+                                  color: const Color(0xFF05141F),
+                                ),
                               ),
                             ],
                           ),

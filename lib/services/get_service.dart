@@ -3,7 +3,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-String baseUrl = 'https://ogabek007.pythonanywhere.com';
+String baseUrl = 'https://diyorbek07.pythonanywhere.com';
 
 //GET CATALOG
 
@@ -111,20 +111,6 @@ Future<Map> getProducts(int id) async {
   );
   Map data = jsonDecode(response.body);
   return data;
-}
-
-//GET VIDEO VIEWS
-
-Future<List> getVideo() async {
-  final response = await http.get(
-    Uri.parse('$baseUrl/dafna_app/get_video/'),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  );
-
-  Map data = jsonDecode(response.body);
-  return data['videos'];
 }
 
 // GET PRODUCT DETAIL

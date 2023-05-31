@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:currency_formatter/currency_formatter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,10 @@ class Recommendations extends StatefulWidget with ChangeNotifier {
 class _IntroPageState extends State<Recommendations> {
   final controller = PageController();
   int activeIndex = 0;
+  CurrencyFormatterSettings som = CurrencyFormatterSettings(
+    symbol: '',
+    thousandSeparator: ' ',
+  );
 
   void _onDotClicked(int index) {
     // Move to the clicked dot's page
@@ -92,9 +97,12 @@ class _IntroPageState extends State<Recommendations> {
                                 height: 15,
                               ),
                               Text(
-                                '${snapshot.data![index]['price']} so`m',
+                                '${CurrencyFormatter.format(snapshot.data![index]['price'], som)} so`m',
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 16,
+                                  color: const Color(0xFF05141F),
+                                ),
                               ),
                             ],
                           ),

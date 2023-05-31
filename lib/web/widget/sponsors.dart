@@ -31,7 +31,7 @@ class _SponsorsState extends State<Sponsors> {
                 });
               },
               child: AnimatedContainer(
-                duration: Duration(microseconds: 9555),
+                duration: Duration(seconds: 25),
                 width: 500,
                 height: 300,
                 child: InkWell(
@@ -73,7 +73,7 @@ class _SponsorsState extends State<Sponsors> {
                 });
               },
               child: AnimatedContainer(
-                duration: const Duration(microseconds: 9555),
+                duration: const Duration(seconds: 25),
                 width: 500,
                 height: 300,
                 child: InkWell(

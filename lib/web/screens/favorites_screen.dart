@@ -1,5 +1,5 @@
 import '/web/widget/appbar_view.dart';
-import '/web/widget/footer.dart';
+import '../widget/footers/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
@@ -97,7 +97,7 @@ class FavoritesScreen extends StatelessWidget {
                                               ),
                                             ),
                                             Image.network(
-                                              'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
+                                              snapshot.data![index]['img_url'],
                                               fit: BoxFit.cover,
                                               loadingBuilder: (context, child, loadingProgress) {
                                                 if (loadingProgress == null) {

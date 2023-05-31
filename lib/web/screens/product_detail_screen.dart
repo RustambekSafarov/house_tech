@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import '/web/widget/footer.dart';
+import '../widget/footers/footer.dart';
 import '/web/widget/recommended.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -49,7 +49,7 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                               height: 430,
                               width: 410,
                               child: Image.network(
-                                'https://ogabek007.pythonanywhere.com/' + snapshot.data!['img_url'],
+                                snapshot.data!['img_url'],
                                 loadingBuilder: (context, child, loadingProgress) {
                                   if (loadingProgress == null) {
                                     return child;

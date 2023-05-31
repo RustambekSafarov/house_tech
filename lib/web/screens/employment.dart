@@ -4,7 +4,7 @@ import '/web/widget/appbar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../widget/footer.dart';
+import '../widget/footers/footer.dart';
 
 class Employment extends StatelessWidget {
   const Employment({super.key});

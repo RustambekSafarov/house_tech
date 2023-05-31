@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 import '/web/widget/appbar_view.dart';
-import '/web/widget/footer.dart';
+import '../widget/footers/footer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -61,7 +61,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                             ),
                             Text('/ '),
                             Text(
-                              snapshot.data!['discrpition'],
+                              snapshot.data!['discrpition'].substring(0, 30) + '...',
                               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                             ),
                           ],
@@ -109,7 +109,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                                       width: 200,
                                       height: 150,
                                       child: Image.network(
-                                        'https://ogabek007.pythonanywhere.com/' + snapshot.data!['prodouct_typt'][index]['img_url'],
+                                        snapshot.data!['prodouct_typt'][index]['img_url'],
                                         loadingBuilder: (context, child, loadingProgress) {
                                           if (loadingProgress == null) {
                                             return child;

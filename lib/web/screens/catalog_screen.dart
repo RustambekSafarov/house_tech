@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 
-import '/web/widget/footer.dart';
+import '../widget/footers/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
@@ -73,7 +73,7 @@ class CatalogScreen extends StatelessWidget with ChangeNotifier {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
                           child: Image.network(
-                            'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
+                            snapshot.data![index]['img_url'],
                             fit: BoxFit.fitWidth,
                             loadingBuilder: (context, child, loadingProgress) {
                               if (loadingProgress == null) {

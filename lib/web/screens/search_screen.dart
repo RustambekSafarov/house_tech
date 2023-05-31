@@ -83,7 +83,7 @@ class SearchResultScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Image.network(
-                                    'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
+                                    snapshot.data![index]['img_url'],
                                     fit: BoxFit.cover,
                                   ),
                                 ],

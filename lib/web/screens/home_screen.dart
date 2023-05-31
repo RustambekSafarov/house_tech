@@ -2,7 +2,6 @@
 import '/web/screens/catalog_screen.dart';
 import '/web/screens/contact_screen.dart';
 import '/web/screens/employment.dart';
-import '/web/screens/video_view_screen.dart';
 import '/web/widget/overview.dart';
 import 'package:flutter/material.dart';
 import '../widget/appbar_view.dart';
@@ -20,7 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pages = [
     OverView(),
     CatalogScreen(),
-    VideoViewScreen(),
     Contactcreen(),
     Employment(),
   ];

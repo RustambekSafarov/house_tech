@@ -1,5 +1,8 @@
 // ignore_for_file: must_be_immutable, prefer_const_constructors
 
+import 'package:currency_formatter/currency_formatter.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import '/web/widget/appbar_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +31,10 @@ class ProductDetailScreen extends StatefulWidget with ChangeNotifier {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int number = 0;
   int? id;
+  CurrencyFormatterSettings som = CurrencyFormatterSettings(
+    symbol: '',
+    thousandSeparator: ' ',
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -224,7 +231,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                                       ),
                                                     ),
                                                     Image.network(
-                                                      'https://ogabek007.pythonanywhere.com/' + snapshot.data!['prodouct_type']['prodoucts'][index]['img_url'],
+                                                      snapshot.data!['prodouct_type']['prodoucts'][index]['img_url'],
                                                       fit: BoxFit.cover,
                                                       loadingBuilder: (context, child, loadingProgress) {
                                                         if (loadingProgress == null) {
@@ -263,11 +270,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    '${snapshot.data!['prodouct_type']['prodoucts'][index]['price']}',
+                                                    '${CurrencyFormatter.format(snapshot.data!['prodouct_type']['prodoucts'][index]['price'], som)}',
                                                     textAlign: TextAlign.center,
-                                                    style: const TextStyle(
-                                                      fontSize: 22,
-                                                      fontWeight: FontWeight.w700,
+                                                    style: GoogleFonts.montserrat(
+                                                      fontSize: 16,
+                                                      color: const Color(0xFF05141F),
                                                     ),
                                                   ),
                                                   const Text(

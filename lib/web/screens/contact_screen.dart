@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import '/web/widget/footer.dart';
+import '../widget/footers/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
@@ -42,15 +42,13 @@ class _ContactcreenState extends State<Contactcreen> {
                       },
                       child: Text(
                         'Asosiy /',
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                   Text(
                     ' Kontaktlar',
-                    style: TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -71,8 +69,7 @@ class _ContactcreenState extends State<Contactcreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Image.network(
-                              'https://telegra.ph/file/1fd2ef08e9092188110fa.png'),
+                          Image.network('https://telegra.ph/file/1fd2ef08e9092188110fa.png'),
                           // cont.value.isInitialized
                           //     ? AspectRatio(
                           //         aspectRatio: cont.value.aspectRatio,
@@ -84,18 +81,14 @@ class _ContactcreenState extends State<Contactcreen> {
                             children: [
                               const Text(
                                 'Kontaktlar',
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.w900),
+                                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
                               ),
                               const SizedBox(
                                 height: 25,
                               ),
                               const Text(
                                 'Operator raqamlari:',
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
+                                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -106,10 +99,7 @@ class _ContactcreenState extends State<Contactcreen> {
                               ),
                               const Text(
                                 'Mebel Menejeri',
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
+                                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -120,10 +110,7 @@ class _ContactcreenState extends State<Contactcreen> {
                               ),
                               const Text(
                                 'Kafolat va qaytarib berish uchun:',
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
+                                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -134,10 +121,7 @@ class _ContactcreenState extends State<Contactcreen> {
                               ),
                               const Text(
                                 'Elektron manzil:',
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
+                                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -148,89 +132,74 @@ class _ContactcreenState extends State<Contactcreen> {
                               ),
                               const Text(
                                 'Kanallarimizga obuna bo\'ling:',
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
+                                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold, color: Colors.grey),
                               ),
                               Row(
                                 children: [
                                   Link(
-                                      uri: Uri.parse(
-                                          'https://www.facebook.com/dafnamebel/'),
+                                      uri: Uri.parse('https://www.facebook.com/dafnamebel/'),
                                       builder: (context, followLink) {
                                         return InkWell(
                                           highlightColor: Colors.transparent,
                                           hoverColor: Colors.transparent,
                                           splashColor: Colors.transparent,
                                           onTap: followLink,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/46b1589031275afecbc5e.png'),
+                                          child: Image.network('https://telegra.ph/file/46b1589031275afecbc5e.png'),
                                         );
                                       }),
                                   Link(
-                                      uri: Uri.parse(
-                                          'https://www.instagram.com/dafnamebel/'),
+                                      uri: Uri.parse('https://www.instagram.com/dafnamebel/'),
                                       builder: (context, followLink) {
                                         return InkWell(
                                           highlightColor: Colors.transparent,
                                           hoverColor: Colors.transparent,
                                           splashColor: Colors.transparent,
                                           onTap: followLink,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/701dcc97ab483734ff98c.png'),
+                                          child: Image.network('https://telegra.ph/file/701dcc97ab483734ff98c.png'),
                                         );
                                       }),
                                   Link(
-                                      uri:
-                                          Uri.parse('https://t.me/dafnaonline'),
+                                      uri: Uri.parse('https://t.me/dafnaonline'),
                                       builder: (context, followLink) {
                                         return InkWell(
                                           highlightColor: Colors.transparent,
                                           hoverColor: Colors.transparent,
                                           splashColor: Colors.transparent,
                                           onTap: followLink,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/a36351659846f5d4363a6.png'),
+                                          child: Image.network('https://telegra.ph/file/a36351659846f5d4363a6.png'),
                                         );
                                       }),
                                   Link(
-                                      uri: Uri.parse(
-                                          'https://www.tiktok.com/@dafnamebel'),
+                                      uri: Uri.parse('https://www.tiktok.com/@dafnamebel'),
                                       builder: (context, followLink) {
                                         return InkWell(
                                           highlightColor: Colors.transparent,
                                           hoverColor: Colors.transparent,
                                           splashColor: Colors.transparent,
                                           onTap: followLink,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/bfb655d6bb47f0337bd1f.png'),
+                                          child: Image.network('https://telegra.ph/file/bfb655d6bb47f0337bd1f.png'),
                                         );
                                       }),
                                   Link(
-                                      uri: Uri.parse(
-                                          'https://www.youtube.com/@dafnamebel5303'),
+                                      uri: Uri.parse('https://www.youtube.com/@dafnamebel5303'),
                                       builder: (context, followLink) {
                                         return InkWell(
                                           highlightColor: Colors.transparent,
                                           hoverColor: Colors.transparent,
                                           splashColor: Colors.transparent,
                                           onTap: followLink,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/841b9e60dee57438a9fd0.png'),
+                                          child: Image.network('https://telegra.ph/file/841b9e60dee57438a9fd0.png'),
                                         );
                                       }),
                                   Link(
-                                      uri: Uri.parse(
-                                          'https://www.pinterest.com/Dafnamebel/'),
+                                      uri: Uri.parse('https://www.pinterest.com/Dafnamebel/'),
                                       builder: (context, followLink) {
                                         return InkWell(
                                           highlightColor: Colors.transparent,
                                           hoverColor: Colors.transparent,
                                           splashColor: Colors.transparent,
                                           onTap: followLink,
-                                          child: Image.network(
-                                              'https://telegra.ph/file/07019c815a5df8c65a1a2.png'),
+                                          child: Image.network('https://telegra.ph/file/07019c815a5df8c65a1a2.png'),
                                         );
                                       }),
                                 ],
@@ -242,8 +211,7 @@ class _ContactcreenState extends State<Contactcreen> {
                       Row(
                         children: const [
                           Padding(
-                            padding:
-                                EdgeInsets.only(left: 65, top: 25, bottom: 25),
+                            padding: EdgeInsets.only(left: 65, top: 25, bottom: 25),
                             child: Text(
                               'Filiallarning joylashuvi',
                               style: TextStyle(
@@ -269,33 +237,24 @@ class _ContactcreenState extends State<Contactcreen> {
                                     itemBuilder: (context, index) => Column(
                                       children: [
                                         Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
+                                              padding: const EdgeInsets.all(8.0),
                                               child: Text(
-                                                snapshot.data![index]
-                                                    ['branches_name'],
-                                                style: const TextStyle(
-                                                    fontSize: 19,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.grey),
+                                                snapshot.data![index]['branches_name'],
+                                                style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold, color: Colors.grey),
                                               ),
                                             ),
                                             Container(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
+                                              padding: const EdgeInsets.all(8.0),
                                               width: 300,
                                               child: Text(
-                                                snapshot.data![index]['address']
-                                                    .toString(),
+                                                snapshot.data![index]['address'].toString(),
                                               ),
                                             ),
                                             Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
+                                              padding: const EdgeInsets.all(8.0),
                                               child: Text(
                                                 'Menejer:  ${snapshot.data![index]['menefer']}',
                                               ),
@@ -310,8 +269,7 @@ class _ContactcreenState extends State<Contactcreen> {
                                     ),
                                   ),
                                 );
-                              } else if (snapshot.connectionState ==
-                                  ConnectionState.waiting) {
+                              } else if (snapshot.connectionState == ConnectionState.waiting) {
                                 return const Center();
                               } else {
                                 return const Text('Own Code Error');
@@ -324,15 +282,10 @@ class _ContactcreenState extends State<Contactcreen> {
                             width: 350,
                             child: OutlinedButton(
                               onPressed: () {},
-                              style: OutlinedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(35))),
+                              style: OutlinedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35))),
                               child: Text(
                                 'U YERGA QANDAY BORISH MUMKIN',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
+                                style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
                               ),
                             ),
                           )
@@ -345,8 +298,7 @@ class _ContactcreenState extends State<Contactcreen> {
                     ],
                   );
                   // return
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
+                } else if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
                     child: SpinKitHourGlass(
                       size: 30,

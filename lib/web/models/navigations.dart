@@ -10,7 +10,6 @@ import '../screens/product_detail_screen.dart';
 import '../screens/product_screen.dart';
 import '../screens/search_screen.dart';
 import '../screens/shopping_card_screen.dart';
-import '../screens/video_view_screen.dart';
 import '../widget/footers/afzalliklar.dart';
 import '../widget/footers/buyurtma.dart';
 import '../widget/footers/savollar.dart';
@@ -88,11 +87,6 @@ class WebNavigations {
       path: '/employment',
       name: Employment.routeName,
       builder: (context, state) => const Employment(),
-    ),
-    GoRoute(
-      path: '/video-view',
-      name: VideoViewScreen.routeName,
-      builder: (context, state) => VideoViewScreen(),
     ),
     GoRoute(
       path: '/favorites',

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import '../../services/get_service.dart';
-import '../widget/footer.dart';
+import 'footers/footer.dart';
 import '../widget/new_products.dart';
 import '../widget/recommended.dart';
 import '../widget/sponsors.dart';
@@ -107,7 +107,7 @@ class _OverViewState extends State<OverView> {
                                   //   fit: BoxFit.fitWidth,
                                   // ),
                                   Image.network(
-                                'https://ogabek007.pythonanywhere.com/${snapshot.data![index]['img_url']}',
+                                '${snapshot.data![index]['img_url']}',
                                 fit: BoxFit.fitWidth,
                               ),
                             ),

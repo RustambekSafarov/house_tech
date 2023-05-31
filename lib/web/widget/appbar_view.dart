@@ -89,34 +89,7 @@ class _MyWidgetState extends State<AppBarView> {
                 ),
               ),
               // const SizedBox(width: 15),
-              MouseRegion(
-                onEnter: (event) {
-                  setState(() {
-                    video = false;
-                  });
-                },
-                onExit: (event) {
-                  setState(() {
-                    video = true;
-                  });
-                },
-                child: SizedBox(
-                  width: constraints.maxWidth * 0.1,
-                  child: TextButton(
-                    onPressed: () => context.goNamed('/video-view'),
-                    child: Text(
-                      'Video sharhlar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300,
-                        decoration: video == false ? TextDecoration.underline : TextDecoration.none,
-                        decorationColor: Colors.white,
-                        decorationThickness: 1.5,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+
               // const SizedBox(width: 15),
               MouseRegion(
                 onEnter: (event) {
@@ -244,7 +217,7 @@ class _MyWidgetState extends State<AppBarView> {
                   ),
                 ),
               ),
-              SizedBox(width: constraints.maxWidth * 0.05),
+              SizedBox(width: constraints.maxWidth * 0.1),
               InkWell(
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
@@ -259,7 +232,7 @@ class _MyWidgetState extends State<AppBarView> {
                 },
                 child: Icon(isDark ? Icons.sunny : Icons.dark_mode),
               ),
-              SizedBox(width: constraints.maxWidth * 0.05),
+              SizedBox(width: constraints.maxWidth * 0.13),
               MouseRegion(
                 onEnter: (event) {
                   setState(() {
@@ -303,14 +276,14 @@ class _MyWidgetState extends State<AppBarView> {
                 width: constraints.maxWidth * 0.05,
               ),
               SizedBox(
-                width: constraints.maxWidth * 0.11,
-                height: 80,
+                width: constraints.maxWidth * 0.08,
+                height: 50,
                 child:
                     // Image(
                     //   image: NetworkImage('https://mebel.dafna.uz/img/logo.png'),
                     // ),
                     Image.network(
-                  'https://telegra.ph/file/dc9cba1fd9f3f1b63d1d0.png',
+                  'https://telegra.ph/file/2b8feb2da55b48616df8e.png',
                   loadingBuilder: (context, child, loadingProgress) {
                     if (loadingProgress == null) {
                       return child;

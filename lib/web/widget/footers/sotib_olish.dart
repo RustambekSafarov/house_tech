@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../appbar_view.dart';
-import '../footer.dart';
+import 'footer.dart';
 
 class SotibOlish extends StatelessWidget {
   const SotibOlish({super.key});
@@ -31,15 +31,13 @@ class SotibOlish extends StatelessWidget {
                     },
                     child: Text(
                       'Asosiy /',
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
                 Text(
                   ' Sotib olish usuli',
-                  style: TextStyle(
-                      color: Colors.blue, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
