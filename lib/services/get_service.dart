@@ -17,7 +17,7 @@ Future<List> getCatalog() async {
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data['katalogs'];
 }
 
@@ -33,7 +33,7 @@ Future<List> getContact() async {
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data['contacts'];
 }
 
@@ -49,7 +49,7 @@ Future<List> getMainContact() async {
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data['main_contacts'];
 }
 
@@ -58,14 +58,13 @@ Future<List> getMainContact() async {
 Future<List> getNewproduct() async {
   final response = await http.get(
     Uri.parse('$baseUrl/dafna_app/get_new_prodouct/'),
-    headers: {
-      "Content-Type": "application/json",
-    },
   );
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
-  Map data = jsonDecode(response.body);
+  // print(response.headers);
+  Map data = json.decode(utf8.decode(response.bodyBytes));
+  // print(data);
   return data['prodoucts'];
 }
 
@@ -81,7 +80,7 @@ Future<List> getRecommendation() async {
 
   // If the server did return a 200 OK response,
   // then parse the JSON.
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data['prodoucts'];
 }
 
@@ -95,7 +94,7 @@ Future<Map> getCatalogType(int id) async {
       "Content-Type": "application/json",
     },
   );
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data;
 }
 
@@ -109,7 +108,7 @@ Future<Map> getProducts(int id) async {
       "Content-Type": "application/json",
     },
   );
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data;
 }
 
@@ -123,7 +122,7 @@ Future<Map> getProductDetail(int id) async {
     },
   );
 
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
 
   return data['prodouct'];
 }
@@ -149,7 +148,7 @@ Future<List> getFavorite() async {
     },
   );
 
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data['loves'];
 }
 
@@ -162,7 +161,7 @@ Future<List> getSearch(String value) async {
       "Content-Type": "application/json",
     },
   );
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data['sorts'];
 }
 
@@ -175,7 +174,7 @@ Future<Map> getCart() async {
       "Content-Type": "application/json",
     },
   );
-  Map data = jsonDecode(response.body);
+  Map data = jsonDecode(utf8.decode(response.bodyBytes));
   return data;
 }
 

@@ -19,19 +19,19 @@ class OverView extends StatefulWidget {
 }
 
 class _OverViewState extends State<OverView> {
-  final _scrollController = ScrollController();
+  // final _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(() {
-      setState(() {});
-    });
+    // _scrollController.addListener(() {
+    //   setState(() {});
+    // });
   }
 
   @override
   void dispose() {
-    _scrollController.dispose();
+    // _scrollController.dispose();
     super.dispose();
   }
 
@@ -42,137 +42,134 @@ class _OverViewState extends State<OverView> {
         future: getCatalog(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Scrollbar(
-              thumbVisibility: true,
-              child: CustomScrollView(
-                shrinkWrap: true,
-                controller: _scrollController,
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: Column(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: SizedBox(
-                            height: 600,
-                            width: double.infinity,
-                            child: Image(
-                              fit: BoxFit.fitHeight,
-                              image: NetworkImage('https://telegra.ph/file/c273c5aadc433e34d494e.png'),
-                            ),
+            return CustomScrollView(
+              // shrinkWrap: true,
+              // controller: _scrollController,
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: SizedBox(
+                          height: 600,
+                          width: double.infinity,
+                          child: Image(
+                            fit: BoxFit.fitHeight,
+                            image: NetworkImage('https://telegra.ph/file/c273c5aadc433e34d494e.png'),
                           ),
-                          // Image.network(
-                          //     'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),
                         ),
-                        const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            SizedBox(
-                              width: 100,
-                              child: Divider(color: Colors.orangeAccent, thickness: 5),
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 15),
-                        // IntroPage()
-                      ],
-                    ),
-                  ),
-                  SliverPadding(
-                    padding: EdgeInsets.only(left: 55, right: 55),
-                    sliver: SliverGrid(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        childAspectRatio: 1.4,
+                        // Image.network(
+                        //     'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),
                       ),
-                      delegate: SliverChildBuilderDelegate(
-                        childCount: 4,
-                        (context, index) => InkWell(
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          onTap: () {
-                            context.goNamed('/catalog-detail', extra: snapshot.data![index]['id']);
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child:
-                                  // Image(
-                                  //   image: NetworkImage(
-                                  //     snapshot.data![index]['img_url'],
-                                  //   ),
-                                  //   fit: BoxFit.fitWidth,
-                                  // ),
-                                  Image.network(
-                                '${snapshot.data![index]['img_url']}',
-                                fit: BoxFit.fitWidth,
-                              ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          SizedBox(
+                            width: 100,
+                            child: Divider(color: Colors.orangeAccent, thickness: 5),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      // IntroPage()
+                    ],
+                  ),
+                ),
+                SliverPadding(
+                  padding: EdgeInsets.only(left: 55, right: 55),
+                  sliver: SliverGrid(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      childAspectRatio: 1.4,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      childCount: 4,
+                      (context, index) => InkWell(
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        onTap: () {
+                          context.goNamed('/catalog-detail', extra: snapshot.data![index]['id']);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child:
+                                // Image(
+                                //   image: NetworkImage(
+                                //     snapshot.data![index]['img_url'],
+                                //   ),
+                                //   fit: BoxFit.fitWidth,
+                                // ),
+                                Image.network(
+                              '${snapshot.data![index]['img_url']}',
+                              fit: BoxFit.fitWidth,
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                  const SliverPadding(
-                    padding: EdgeInsets.only(left: 100, top: 40, bottom: 40),
-                    sliver: SliverToBoxAdapter(
-                      child: Text(
-                        'Yangi',
-                        style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                ),
+                const SliverPadding(
+                  padding: EdgeInsets.only(left: 100, top: 40, bottom: 40),
+                  sliver: SliverToBoxAdapter(
+                    child: Text(
+                      'Yangi',
+                      style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: NewProducts(),
+                ),
+                const SliverPadding(
+                  padding: EdgeInsets.only(left: 100, top: 40, bottom: 40),
+                  sliver: SliverToBoxAdapter(
+                    child: Text(
+                      'Tavsiyalar',
+                      style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Recommendations(),
+                ),
+                const SliverToBoxAdapter(
+                  child: Sponsors(),
+                ),
+                SliverPadding(
+                  padding: EdgeInsets.only(left: 55, right: 55, bottom: 55),
+                  sliver: SliverGrid.builder(
+                    itemCount: forGrid.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                    ),
+                    itemBuilder: (context, index) => SizedBox(
+                      height: 150,
+                      width: 280,
+                      child: Image.network(
+                        forGrid[index],
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: NewProducts(),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    color: Colors.blue,
+                    width: double.infinity,
+                    height: 320,
+                    child: const Footer(),
                   ),
-                  const SliverPadding(
-                    padding: EdgeInsets.only(left: 100, top: 40, bottom: 40),
-                    sliver: SliverToBoxAdapter(
-                      child: Text(
-                        'Tavsiyalar',
-                        style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: Recommendations(),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: Sponsors(),
-                  ),
-                  SliverPadding(
-                    padding: EdgeInsets.only(left: 55, right: 55, bottom: 55),
-                    sliver: SliverGrid.builder(
-                      itemCount: forGrid.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                      ),
-                      itemBuilder: (context, index) => SizedBox(
-                        height: 150,
-                        width: 280,
-                        child: Image.network(
-                          forGrid[index],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: Container(
-                      alignment: Alignment.topCenter,
-                      color: Colors.blue,
-                      width: double.infinity,
-                      height: 320,
-                      child: const Footer(),
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(

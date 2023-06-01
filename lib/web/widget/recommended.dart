@@ -71,7 +71,7 @@ class _IntroPageState extends State<Recommendations> {
                                   image: DecorationImage(
                                     fit: BoxFit.fitWidth,
                                     image: NetworkImage(
-                                      'https://ogabek007.pythonanywhere.com/${snapshot.data![index]['img_url']}',
+                                      '${snapshot.data![index]['img_url']}',
                                     ),
                                   ),
                                 ),

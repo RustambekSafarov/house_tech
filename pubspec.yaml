@@ -46,6 +46,7 @@ dependencies:
   flex_color_scheme: ^7.1.2
   provider: ^6.0.5
   currency_formatter: ^2.0.1
+  translit: ^2.0.1
  
 
 dev_dependencies:
