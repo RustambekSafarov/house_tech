@@ -31,9 +31,9 @@ class _SponsorsState extends State<Sponsors> {
                 });
               },
               child: AnimatedContainer(
-                duration: Duration(seconds: 25),
-                width: 500,
-                height: 300,
+                duration: Duration(milliseconds: 100),
+                width: sponsor1 ? 500 : 509,
+                height: sponsor1 ? 300 : 309,
                 child: InkWell(
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -50,8 +50,8 @@ class _SponsorsState extends State<Sponsors> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                        fit: sponsor1 == false ? BoxFit.fitHeight : BoxFit.fitWidth,
-                        image: const NetworkImage('https://telegra.ph/file/ac6a1c228d7d9d7677095.pnghttps://mebel.dafna.uz/img/Today/eman-banner.png'),
+                        fit: BoxFit.fitWidth,
+                        image: const NetworkImage('https://telegra.ph/file/35703cfebabcbb0dcb1a8.png'),
                       ),
                     ),
                   ),
@@ -73,9 +73,9 @@ class _SponsorsState extends State<Sponsors> {
                 });
               },
               child: AnimatedContainer(
-                duration: const Duration(seconds: 25),
-                width: 500,
-                height: 300,
+                duration: const Duration(milliseconds: 100),
+                width: sponsor2 ? 500 : 509,
+                height: sponsor2 ? 300 : 309,
                 child: InkWell(
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -92,7 +92,7 @@ class _SponsorsState extends State<Sponsors> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                        fit: sponsor2 == false ? BoxFit.fitHeight : BoxFit.fitWidth,
+                        fit: BoxFit.fitWidth,
                         image: const NetworkImage('https://telegra.ph/file/85ba7f7f2f9e37c90adb8.png'),
                       ),
                     ),
