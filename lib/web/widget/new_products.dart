@@ -137,7 +137,7 @@ class _IntroPageState extends State<NewProducts> {
                   _onDotClicked(i);
                 },
                 count: snapshot.data!.length,
-                effect: WormEffect(
+                effect: const WormEffect(
                   activeDotColor: Colors.blue,
                   dotColor: Color.fromARGB(255, 143, 210, 255),
                   dotHeight: 7,

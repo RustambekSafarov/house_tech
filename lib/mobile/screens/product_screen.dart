@@ -29,12 +29,12 @@ class _ProductScreenMState extends State<ProductScreenM> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Prodoucts'),
+        title: const Text('Prodoucts'),
         leading: InkWell(
             onTap: () {
               context.goNamed('/home');
             },
-            child: Icon(Icons.arrow_back_ios)),
+            child: const Icon(Icons.arrow_back_ios)),
       ),
       body: Center(
         child: ListView(
@@ -49,7 +49,7 @@ class _ProductScreenMState extends State<ProductScreenM> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Saralash turi:'),
+                        const Text('Saralash turi:'),
                         Row(
                           children: [
                             InkWell(
@@ -58,14 +58,14 @@ class _ProductScreenMState extends State<ProductScreenM> {
                               splashColor: Colors.transparent,
                               onTap: () {},
                               child: Container(
-                                margin: EdgeInsets.all(5),
+                                margin: const EdgeInsets.all(5),
                                 height: 35,
                                 width: 85,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   color: Colors.blue,
                                 ),
-                                child: Center(child: Text('Mashhurlik')),
+                                child: const Center(child: Text('Mashhurlik')),
                               ),
                             ),
                             InkWell(
@@ -74,14 +74,14 @@ class _ProductScreenMState extends State<ProductScreenM> {
                               splashColor: Colors.transparent,
                               onTap: () {},
                               child: Container(
-                                margin: EdgeInsets.all(5),
+                                margin: const EdgeInsets.all(5),
                                 height: 35,
                                 width: 65,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   color: Colors.blue,
                                 ),
-                                child: Center(child: Text('Yangi')),
+                                child: const Center(child: Text('Yangi')),
                               ),
                             ),
                             InkWell(
@@ -90,14 +90,14 @@ class _ProductScreenMState extends State<ProductScreenM> {
                               splashColor: Colors.transparent,
                               onTap: () {},
                               child: Container(
-                                margin: EdgeInsets.all(5),
+                                margin: const EdgeInsets.all(5),
                                 height: 35,
                                 width: 65,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   color: Colors.blue,
                                 ),
-                                child: Center(child: Text('Narxi')),
+                                child: const Center(child: Text('Narxi')),
                               ),
                             ),
                             InkWell(
@@ -106,19 +106,19 @@ class _ProductScreenMState extends State<ProductScreenM> {
                               splashColor: Colors.transparent,
                               onTap: () {},
                               child: Container(
-                                margin: EdgeInsets.all(5),
+                                margin: const EdgeInsets.all(5),
                                 height: 35,
                                 width: 65,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
                                   color: Colors.blue,
                                 ),
-                                child: Center(child: Text('Chegirma')),
+                                child: const Center(child: Text('Chegirma')),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         ListView.builder(
@@ -145,13 +145,13 @@ class _ProductScreenMState extends State<ProductScreenM> {
                                         children: [
                                           IconButton(
                                             onPressed: () {},
-                                            icon: Icon(Icons.favorite_border),
+                                            icon: const Icon(Icons.favorite_border),
                                           ),
                                           SizedBox(
                                             width: 220,
                                             height: 150,
                                             child: Image.network(
-                                              'https://ogabek007.pythonanywhere.com/' + snapshot.data!['prodouct_type']['prodoucts'][index]['img_url'],
+                                              snapshot.data!['prodouct_type']['prodoucts'][index]['img_url'],
                                               // fit: BoxFit.cover,
                                               loadingBuilder: (context, child, loadingProgress) {
                                                 if (loadingProgress == null) {
@@ -175,7 +175,7 @@ class _ProductScreenMState extends State<ProductScreenM> {
                                       style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: 100,
                                     width: 220,
                                     // padding: const EdgeInsets.all(13.0),
@@ -227,8 +227,11 @@ class _ProductScreenMState extends State<ProductScreenM> {
                     ),
                   );
                 } else {
-                  return const Center(
-                    child: Text('Own Code Error'),
+                  return const SizedBox(
+                    height: 400,
+                    child: Center(
+                      child: Text('Own Code Error'),
+                    ),
                   );
                 }
               },

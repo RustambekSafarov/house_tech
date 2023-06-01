@@ -24,12 +24,12 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About prodouct'),
+        title: const Text('About prodouct'),
         leading: InkWell(
             onTap: () {
               context.goNamed('/home');
             },
-            child: Icon(Icons.arrow_back_ios)),
+            child: const Icon(Icons.arrow_back_ios)),
       ),
       body: ListView(
         children: [
@@ -42,7 +42,7 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Image.network(
-                        'https://ogabek007.pythonanywhere.com/' + snapshot.data!['img_url'],
+                        snapshot.data!['img_url'],
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) {
                             return child;
@@ -134,9 +134,9 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                               ),
                             ],
                           ),
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Text(
                                 'Buyurtma berishdan oldin, etkazib berish shartlarini operatorlar bilan tekshiring',
                                 style: TextStyle(
@@ -206,15 +206,21 @@ class _ProductDetailScreenMState extends State<ProductDetailScreenM> {
                   ],
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
-                  child: SpinKitHourGlass(
-                    color: Colors.black,
-                    size: 30,
+                return const SizedBox(
+                  height: 500,
+                  child: Center(
+                    child: SpinKitHourGlass(
+                      color: Colors.black,
+                      size: 30,
+                    ),
                   ),
                 );
               } else {
-                return Center(
-                  child: Text('Network Error!'),
+                return const SizedBox(
+                  height: 400,
+                  child: Center(
+                    child: Text('Network Error!'),
+                  ),
                 );
               }
             },

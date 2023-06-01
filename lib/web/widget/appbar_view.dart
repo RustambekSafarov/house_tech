@@ -307,7 +307,7 @@ class _MyWidgetState extends State<AppBarView> {
                           useSafeArea: false,
                           context: context,
                           builder: (context) {
-                            return AlertDialog(
+                            return const AlertDialog(
                               alignment: Alignment.bottomCenter,
                               insetPadding: EdgeInsets.all(0),
                               backgroundColor: Colors.lightBlue,
@@ -426,7 +426,7 @@ class _MyWidgetState extends State<AppBarView> {
                       setState(() {
                         showDialog(
                           context: context,
-                          builder: (context) => AlertDialog(
+                          builder: (context) => const AlertDialog(
                             content: Register(),
                           ),
                         );

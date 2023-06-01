@@ -31,7 +31,7 @@ class _SponsorsState extends State<Sponsors> {
                 });
               },
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 100),
+                duration: const Duration(milliseconds: 100),
                 width: sponsor1 ? 500 : 509,
                 height: sponsor1 ? 300 : 309,
                 child: InkWell(
@@ -49,9 +49,9 @@ class _SponsorsState extends State<Sponsors> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         fit: BoxFit.fitWidth,
-                        image: const NetworkImage('https://telegra.ph/file/35703cfebabcbb0dcb1a8.png'),
+                        image: NetworkImage('https://telegra.ph/file/35703cfebabcbb0dcb1a8.png'),
                       ),
                     ),
                   ),
@@ -91,9 +91,9 @@ class _SponsorsState extends State<Sponsors> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         fit: BoxFit.fitWidth,
-                        image: const NetworkImage('https://telegra.ph/file/85ba7f7f2f9e37c90adb8.png'),
+                        image: NetworkImage('https://telegra.ph/file/85ba7f7f2f9e37c90adb8.png'),
                       ),
                     ),
                   ),

@@ -91,7 +91,7 @@ class WebNavigations {
     GoRoute(
       path: '/favorites',
       name: FavoritesScreen.routeName,
-      builder: (context, state) => FavoritesScreen(),
+      builder: (context, state) => const FavoritesScreen(),
     ),
     GoRoute(
       path: '/search-result',
@@ -103,7 +103,7 @@ class WebNavigations {
     GoRoute(
       path: '/shopping-cart',
       name: ShoppingCardScreen.routeName,
-      builder: (context, state) => ShoppingCardScreen(
+      builder: (context, state) => const ShoppingCardScreen(
           // value: state.extra as String,
           ),
     ),

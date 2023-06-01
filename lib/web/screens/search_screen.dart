@@ -31,21 +31,21 @@ class SearchResultScreen extends StatelessWidget {
                     onTap: () {
                       context.goNamed('/home');
                     },
-                    child: Text(
+                    child: const Text(
                       'Asosiy ',
                       style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
-                Text(
+                const Text(
                   '/ Qidiruv natijalari',
                   style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 150, right: 150),
+          const Padding(
+            padding: EdgeInsets.only(left: 150, right: 150),
             child: Divider(),
           ),
           FutureBuilder(
@@ -79,7 +79,7 @@ class SearchResultScreen extends StatelessWidget {
                                     right: 0,
                                     child: IconButton(
                                       onPressed: () {},
-                                      icon: Icon(Icons.favorite_border),
+                                      icon: const Icon(Icons.favorite_border),
                                     ),
                                   ),
                                   Image.network(
@@ -98,7 +98,7 @@ class SearchResultScreen extends StatelessWidget {
                               style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             height: 100,
                             width: 220,
                             // padding: const EdgeInsets.all(13.0),
@@ -147,7 +147,7 @@ class SearchResultScreen extends StatelessWidget {
                   ),
                 );
               } else {
-                return Center(
+                return const Center(
                   child: Text(
                     'So\'rovingiz bo\'yicha hech narsa topilmadi!',
                     style: TextStyle(fontSize: 22),

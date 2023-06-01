@@ -38,11 +38,11 @@ class FavoriteWidget extends StatelessWidget {
                             right: 0,
                             child: IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.favorite_border),
+                              icon: const Icon(Icons.favorite_border),
                             ),
                           ),
                           Image.network(
-                            'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
+                            snapshot.data![index]['img_url'],
                             fit: BoxFit.cover,
                             loadingBuilder: (context, child, loadingProgress) {
                               if (loadingProgress == null) {
@@ -65,7 +65,7 @@ class FavoriteWidget extends StatelessWidget {
                       style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 100,
                     width: 220,
                     // padding: const EdgeInsets.all(13.0),
@@ -103,15 +103,21 @@ class FavoriteWidget extends StatelessWidget {
             ),
           );
         } else if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: SpinKitHourGlass(
-              color: Colors.black,
-              size: 30,
+          return const SizedBox(
+            height: 450,
+            child: Center(
+              child: SpinKitHourGlass(
+                color: Colors.black,
+                size: 30,
+              ),
             ),
           );
         } else {
-          return Center(
-            child: Text('Network Error!'),
+          return const SizedBox(
+            height: 400,
+            child: Center(
+              child: Text('Network Error!'),
+            ),
           );
         }
       },

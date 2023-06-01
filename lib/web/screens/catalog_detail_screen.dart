@@ -43,32 +43,32 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                                 onTap: () {
                                   context.goNamed('/home');
                                 },
-                                child: Text(
+                                child: const Text(
                                   'Asosiy ',
                                   style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ),
-                            Text('/'),
+                            const Text('/'),
                             InkWell(
                               onTap: () {
                                 context.goNamed('/catalog');
                               },
-                              child: Text(
+                              child: const Text(
                                 ' Katalog ',
                                 style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                               ),
                             ),
-                            Text('/ '),
+                            const Text('/ '),
                             Text(
                               snapshot.data!['discrpition'].substring(0, 30) + '...',
-                              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                              style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 150, right: 150),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 150, right: 150),
                         child: Divider(),
                       ),
                       Padding(
@@ -178,7 +178,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.house,
                       color: Colors.white,
                     ),
@@ -190,7 +190,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.barsStaggered,
                       color: Colors.white,
                     ),
@@ -202,7 +202,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.basketShopping,
                       color: Colors.white,
                     ),
@@ -214,7 +214,7 @@ class CatalogDetailScreen extends StatelessWidget with ChangeNotifier {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.heartCircleCheck,
                       color: Colors.white,
                     ),

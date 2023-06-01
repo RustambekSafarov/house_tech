@@ -148,9 +148,9 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                         ),
                                       ],
                                     ),
-                                    Column(
+                                    const Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: const [
+                                      children: [
                                         Text(
                                           'Buyurtma berishdan oldin, etkazib berish shartlarini operatorlar bilan tekshiring',
                                           style: TextStyle(color: Colors.red),

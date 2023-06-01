@@ -7,8 +7,9 @@ import 'package:go_router/go_router.dart';
 import '../../services/get_service.dart';
 
 class FavoritesScreen extends StatelessWidget {
-  FavoritesScreen({super.key});
+  const FavoritesScreen({super.key});
   static const routeName = '/favorites';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,21 +31,21 @@ class FavoritesScreen extends StatelessWidget {
                       onTap: () {
                         context.goNamed('/home');
                       },
-                      child: Text(
+                      child: const Text(
                         'Asosiy /',
                         style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
-                  Text(
+                  const Text(
                     ' Sevimlilar',
                     style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 150, right: 150),
+            const Padding(
+              padding: EdgeInsets.only(left: 150, right: 150),
               child: Divider(),
             ),
             FutureBuilder(
@@ -57,7 +58,7 @@ class FavoritesScreen extends StatelessWidget {
                             top: MediaQuery.of(context).size.height * 0.15,
                             bottom: MediaQuery.of(context).size.height * 0.15,
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text('There is no favorite product yet!'),
                           ),
                         )
@@ -93,7 +94,7 @@ class FavoritesScreen extends StatelessWidget {
                                               right: 0,
                                               child: IconButton(
                                                 onPressed: () {},
-                                                icon: Icon(Icons.favorite_border),
+                                                icon: const Icon(Icons.favorite_border),
                                               ),
                                             ),
                                             Image.network(
@@ -120,7 +121,7 @@ class FavoritesScreen extends StatelessWidget {
                                         style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                                       ),
                                     ),
-                                    Container(
+                                    SizedBox(
                                       height: 100,
                                       width: 220,
                                       // padding: const EdgeInsets.all(13.0),
@@ -160,20 +161,30 @@ class FavoritesScreen extends StatelessWidget {
                           ),
                         );
                 } else if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: SpinKitHourGlass(
-                      size: 30,
-                      color: Colors.black,
+                  return const SizedBox(
+                    height: 500,
+                    child: Center(
+                      child: SizedBox(
+                        child: SpinKitHourGlass(
+                          size: 30,
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
                   );
                 } else {
-                  return const Center(child: Text('Own Code Error'));
+                  return const SizedBox(
+                    height: 450,
+                    child: Center(
+                      child: Text('Own Code Error'),
+                    ),
+                  );
                 }
               },
             ),
             Container(
               color: Colors.blue,
-              child: Footer(),
+              child: const Footer(),
             )
           ],
         ),

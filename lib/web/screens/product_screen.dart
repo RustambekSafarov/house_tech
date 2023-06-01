@@ -254,7 +254,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                                 style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
                                               ),
                                             ),
-                                            Container(
+                                            SizedBox(
                                               height: 100,
                                               width: 220,
                                               // padding: const EdgeInsets.all(13.0),
@@ -270,7 +270,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    '${CurrencyFormatter.format(snapshot.data!['prodouct_type']['prodoucts'][index]['price'], som)}',
+                                                    CurrencyFormatter.format(snapshot.data!['prodouct_type']['prodoucts'][index]['price'], som),
                                                     textAlign: TextAlign.center,
                                                     style: GoogleFonts.montserrat(
                                                       fontSize: 16,

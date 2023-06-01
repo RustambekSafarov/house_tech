@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../services/get_service.dart';
 import '../widget/appbar_view.dart';
+import '../widget/footers/footer.dart';
 
 class ShoppingCardScreen extends StatelessWidget {
   const ShoppingCardScreen({super.key});
@@ -30,25 +31,25 @@ class ShoppingCardScreen extends StatelessWidget {
                       onTap: () {
                         context.goNamed('/home');
                       },
-                      child: Text(
+                      child: const Text(
                         'Asosiy /',
                         style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
-                  Text(
+                  const Text(
                     ' Savat',
                     style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 150, right: 150, bottom: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 150, right: 150, bottom: 20),
               child: Divider(),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 150, right: 150),
+            const Padding(
+              padding: EdgeInsets.only(left: 150, right: 150),
               child: Text('Savat'),
             ),
             FutureBuilder(
@@ -56,7 +57,7 @@ class ShoppingCardScreen extends StatelessWidget {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return snapshot.data!['cart'].isEmpty
-                      ? Center(
+                      ? const Center(
                           child: Text('There is no product yet!'),
                         )
                       : Padding(
@@ -137,7 +138,7 @@ class ShoppingCardScreen extends StatelessWidget {
                                               )
                                             ],
                                           ),
-                                          InkWell(
+                                          const InkWell(
                                             child: Row(
                                               children: [
                                                 Icon(Icons.delete),
@@ -157,17 +158,29 @@ class ShoppingCardScreen extends StatelessWidget {
                           ),
                         );
                 } else if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: SpinKitHourGlass(
-                      size: 30,
-                      color: Colors.black,
+                  return const SizedBox(
+                    height: 450,
+                    child: Center(
+                      child: SpinKitHourGlass(
+                        size: 30,
+                        color: Colors.black,
+                      ),
                     ),
                   );
                 } else {
-                  return const Center(child: Text('Own Code Error'));
+                  return const SizedBox(
+                    height: 450,
+                    child: Center(
+                      child: Text('Own Code Error'),
+                    ),
+                  );
                 }
               },
             ),
+            Container(
+              color: Colors.blue,
+              child: const Footer(),
+            )
           ],
         ),
       ),

@@ -19,10 +19,10 @@ class CatalogWidget extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GridView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: 4,
                     shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 1.4, crossAxisSpacing: 10, mainAxisSpacing: 10),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 1.4, crossAxisSpacing: 10, mainAxisSpacing: 10),
                     itemBuilder: (context, index) {
                       return InkWell(
                         hoverColor: Colors.transparent,
@@ -36,7 +36,7 @@ class CatalogWidget extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
                             child: Image.network(
-                              'https://ogabek007.pythonanywhere.com/' + snapshot.data![index]['img_url'],
+                              snapshot.data![index]['img_url'],
                               fit: BoxFit.fitWidth,
                             ),
                           ),
@@ -46,14 +46,14 @@ class CatalogWidget extends StatelessWidget {
                   ),
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
+                return const Center(
                   child: SpinKitHourGlass(
                     color: Colors.black,
                     size: 30,
                   ),
                 );
               } else {
-                return Center(child: Text('Network Error!'));
+                return const Center(child: Text('Network Error!'));
               }
             },
           )

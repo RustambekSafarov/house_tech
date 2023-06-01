@@ -21,7 +21,7 @@ class HomeWidget extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {},
-                child: Container(
+                child: const SizedBox(
                   // height: 600,
                   width: double.infinity,
                   child: Image(
@@ -33,9 +33,9 @@ class HomeWidget extends StatelessWidget {
                 //     'https://telegra.ph/file/9a476a924652ca1edfd9a.jpg'),
               ),
               const SizedBox(height: 10),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   SizedBox(
                     width: 100,
                     child: Divider(color: Colors.orangeAccent, thickness: 5),
@@ -46,10 +46,10 @@ class HomeWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: 4,
                   shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 1.4,
                     crossAxisSpacing: 10,
@@ -77,8 +77,8 @@ class HomeWidget extends StatelessWidget {
                   },
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, top: 15, bottom: 8),
+              const Padding(
+                padding: EdgeInsets.only(left: 15, top: 15, bottom: 8),
                 child: Text(
                   'Yangilar',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
@@ -88,8 +88,8 @@ class HomeWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: NewProducts(),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, top: 15, bottom: 8),
+              const Padding(
+                padding: EdgeInsets.only(left: 15, top: 15, bottom: 8),
                 child: Text(
                   'Tavsiyalar',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
@@ -99,22 +99,24 @@ class HomeWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: RecommendationsM(),
               ),
-              SponsorsM(),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
+              const SponsorsM(),
+              const Padding(
+                padding: EdgeInsets.all(5.0),
                 child: IdeasPhotosM(),
               ),
             ],
           );
         } else if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: SpinKitHourGlass(
-              size: 30,
-              color: Colors.black,
+          return const SizedBox(
+            child: Center(
+              child: SpinKitHourGlass(
+                size: 30,
+                color: Colors.black,
+              ),
             ),
           );
         } else {
-          return Center(
+          return const Center(
             child: Text('Network Error!'),
           );
         }

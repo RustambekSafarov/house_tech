@@ -22,7 +22,7 @@ class IdeasPhotosM extends StatelessWidget {
           if (loadingProgress == null) {
             return child;
           }
-          return Placeholder();
+          return const Placeholder();
         },
       ),
     );

@@ -44,7 +44,7 @@ class _ShoppingWidgetState extends State<ShoppingWidget> {
                             numberOf != 0 ? numberOf -= 1 : 0;
                           });
                         },
-                        icon: Icon(Icons.remove_circle_outline),
+                        icon: const Icon(Icons.remove_circle_outline),
                       ),
                       Text('$numberOf'),
                       IconButton(
@@ -53,7 +53,7 @@ class _ShoppingWidgetState extends State<ShoppingWidget> {
                             numberOf += 1;
                           });
                         },
-                        icon: Icon(Icons.add_circle_outline),
+                        icon: const Icon(Icons.add_circle_outline),
                       ),
                     ],
                   ),
@@ -62,14 +62,14 @@ class _ShoppingWidgetState extends State<ShoppingWidget> {
                   width: width,
                   child: Column(
                     children: [
-                      Text(snapshot.data!['carts'][index]['price'].toString() + ' so\'m'),
+                      Text('${snapshot.data!['carts'][index]['price']} so\'m'),
                       InkWell(
                         onTap: () {
                           setState(() {
                             deleteCart(snapshot.data!['carts'][index]['id']);
                           });
                         },
-                        child: Icon(Icons.delete),
+                        child: const Icon(Icons.delete),
                       ),
                     ],
                   ),
