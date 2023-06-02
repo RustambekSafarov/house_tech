@@ -145,6 +145,7 @@ Future<List> getFavorite() async {
     Uri.parse('$baseUrl/dafna_app/get_love/'),
     headers: {
       "Content-Type": "application/json",
+      "Authorithation": 'Token ed9941049482ef84b651e53ac6c39d38c1b07438',
     },
   );
 
@@ -172,6 +173,9 @@ Future<Map> getCart() async {
     Uri.parse('$baseUrl/dafna_app/get_cart/'),
     headers: {
       "Content-Type": "application/json",
+      "Authorithation": 'Token ed9941049482ef84b651e53ac6c39d38c1b07438',
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
     },
   );
   Map data = jsonDecode(utf8.decode(response.bodyBytes));
