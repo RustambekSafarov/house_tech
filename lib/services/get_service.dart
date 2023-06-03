@@ -141,16 +141,19 @@ Future<void> deleteLike(int id) async {
 // GET FAVORITES
 
 Future<List> getFavorite() async {
-  final response = await http.get(
-    Uri.parse('$baseUrl/dafna_app/get_love/'),
-    headers: {
-      "Content-Type": "application/json",
-      "Authorithation": 'Token ed9941049482ef84b651e53ac6c39d38c1b07438',
-    },
+  var headers = {'Content-Type': 'application/json', 'Authorization': 'Token ed9941049482ef84b651e53ac6c39d38c1b07438'};
+  http.Response response = await http.get(
+    Uri.parse('https://diyorbek07.pythonanywhere.com/dafna_app/get_love/'),
+    headers: headers,
   );
 
-  Map data = jsonDecode(utf8.decode(response.bodyBytes));
-  return data['loves'];
+  if (response.statusCode == 200) {
+    // print(await);
+    return jsonDecode(response.body)['loves'];
+  } else {
+    print(response.reasonPhrase);
+    throw Exception('Failed to load album');
+  }
 }
 
 // GET SEARCH RESULT

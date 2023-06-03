@@ -55,19 +55,23 @@ class Employment extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 65, right: 65, top: 25, bottom: 25),
-            child: Image.network(
-              'https://telegra.ph/file/c50c369ffa0cba19ca2e6.jpg',
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) {
-                  return child;
-                }
-                return Image.network(
-                  'https://telegra.ph/file/a775320534f348ae7f531.png',
-                );
-              },
-            ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 65, right: 65, bottom: 25),
+          //   child: Image.network(
+          //     'https://telegra.ph/file/c8f31d801542ab05c06c0.png',
+          //     // fit: BoxFit.cover,
+          //     loadingBuilder: (context, child, loadingProgress) {
+          //       if (loadingProgress == null) {
+          //         return child;
+          //       }
+          //       return Image.network(
+          //         'https://telegra.ph/file/a775320534f348ae7f531.png',
+          //       );
+          //     },
+          //   ),
+          // ),
+          SizedBox(
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 65),

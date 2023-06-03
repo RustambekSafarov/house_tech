@@ -1,5 +1,8 @@
 // ignore_for_file: must_be_immutable, depend_on_referenced_packages
 
+import 'package:house_tech/services/cart_provider.dart';
+import 'package:house_tech/services/like_provider.dart';
+
 import '/mobile/models/navigations.dart';
 import '/mobile/screens/home_screen.dart';
 import '/theme/theme_manager.dart';
@@ -77,9 +80,9 @@ class _MyAppState extends State<MyApp> {
         } else {
           return MultiProvider(
             providers: [
-              ChangeNotifierProvider(
-                create: (context) => AppBarView(),
-              )
+              ChangeNotifierProvider(create: (context) => AppBarView()),
+              ChangeNotifierProvider(create: (context) => CartProvider()),
+              ChangeNotifierProvider(create: (context) => LikeProvider()),
             ],
             child: MaterialApp.router(
               debugShowCheckedModeBanner: false,

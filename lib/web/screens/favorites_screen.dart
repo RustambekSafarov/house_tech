@@ -1,10 +1,10 @@
+import 'package:house_tech/services/like_provider.dart';
+import 'package:provider/provider.dart';
+
 import '/web/widget/appbar_view.dart';
 import '../widget/footers/footer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../services/get_service.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});
@@ -12,6 +12,7 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final likes = Provider.of<LikeProvider>(context, listen: false).likeItems;
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: primaryColor,
@@ -48,139 +49,106 @@ class FavoritesScreen extends StatelessWidget {
               padding: EdgeInsets.only(left: 150, right: 150),
               child: Divider(),
             ),
-            FutureBuilder(
-              future: getFavorite(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return snapshot.data!.isEmpty
-                      ? Padding(
-                          padding: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.15,
-                            bottom: MediaQuery.of(context).size.height * 0.15,
-                          ),
-                          child: const Center(
-                            child: Text('There is no favorite product yet!'),
-                          ),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.only(left: 65, right: 65, top: 20),
-                          child: GridView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: snapshot.data!.length,
-                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.5, mainAxisSpacing: 20, crossAxisSpacing: 20),
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                splashColor: Colors.transparent,
-                                onTap: () {
-                                  context.goNamed(
-                                    '/product-info',
-                                    extra: snapshot.data![index]['id'],
-                                  );
-                                },
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(15),
-                                      child: SizedBox(
-                                        height: 220,
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              top: 0,
-                                              right: 0,
-                                              child: IconButton(
-                                                onPressed: () {},
-                                                icon: const Icon(Icons.favorite_border),
-                                              ),
-                                            ),
-                                            Image.network(
-                                              snapshot.data![index]['img_url'],
-                                              fit: BoxFit.cover,
-                                              loadingBuilder: (context, child, loadingProgress) {
-                                                if (loadingProgress == null) {
-                                                  return child;
-                                                }
-                                                return Image.network(
-                                                  'https://telegra.ph/file/a775320534f348ae7f531.png',
-                                                );
-                                              },
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 70,
-                                      child: Text(
-                                        snapshot.data![index]['name'].toUpperCase(),
-                                        textAlign: TextAlign.center,
-                                        style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 100,
-                                      width: 220,
-                                      // padding: const EdgeInsets.all(13.0),
-                                      child: Text(
-                                        snapshot.data![index]['discrpition'],
-                                        textAlign: TextAlign.center,
-                                        style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300, color: Colors.grey),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(13.0),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            '${snapshot.data![index]['price']}',
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              fontSize: 22,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                          const Text(
-                                            ' so\'m',
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+            Padding(
+              padding: const EdgeInsets.only(left: 65, right: 65, top: 20),
+              child: GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: likes.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.5, mainAxisSpacing: 20, crossAxisSpacing: 20),
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    onTap: () {
+                      context.goNamed(
+                        '/product-info',
+                        extra: likes[index].id,
+                      );
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: SizedBox(
+                            height: 220,
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  top: 0,
+                                  right: 0,
+                                  child: IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(Icons.favorite_border),
+                                  ),
                                 ),
-                              );
-                            },
+                                Image.network(
+                                  likes[index].image,
+                                  fit: BoxFit.cover,
+                                  loadingBuilder: (context, child, loadingProgress) {
+                                    if (loadingProgress == null) {
+                                      return child;
+                                    }
+                                    return Image.network(
+                                      'https://telegra.ph/file/a775320534f348ae7f531.png',
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
-                        );
-                } else if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const SizedBox(
-                    height: 500,
-                    child: Center(
-                      child: SizedBox(
-                        child: SpinKitHourGlass(
-                          size: 30,
-                          color: Colors.black,
                         ),
-                      ),
+                        SizedBox(
+                          height: 70,
+                          child: Text(
+                            likes[index].name,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.w900),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 100,
+                          width: 220,
+                          // padding: const EdgeInsets.all(13.0),
+                          child: Text(
+                            likes[index].description,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w300, color: Colors.grey),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(13.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '${likes[index].price}',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              const Text(
+                                ' so\'m',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   );
-                } else {
-                  return const SizedBox(
-                    height: 450,
-                    child: Center(
-                      child: Text('Own Code Error'),
-                    ),
-                  );
-                }
-              },
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 50,
             ),
             Container(
               color: Colors.blue,

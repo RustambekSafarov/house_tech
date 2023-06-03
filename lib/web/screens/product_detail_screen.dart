@@ -1,11 +1,15 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:house_tech/services/cart_provider.dart';
+import 'package:house_tech/services/like_provider.dart';
+import 'package:house_tech/web/models/product.dart';
+import 'package:provider/provider.dart';
+
 import '../widget/footers/footer.dart';
 import '/web/widget/recommended.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../../services/get_service.dart';
-import '../../services/post_service.dart';
 import '../widget/appbar_view.dart';
 
 class ProductInfoScreen extends StatefulWidget {
@@ -85,9 +89,19 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                   children: [
                                     ElevatedButton(
                                       onPressed: () {
-                                        setState(() {
-                                          addCard(snapshot.data!['id']);
-                                        });
+                                        print(snapshot.data!['name']);
+                                        print(snapshot.data!['discrpition']);
+                                        print(snapshot.data!['img_url']);
+                                        print(snapshot.data!['price']);
+                                        Provider.of<CartProvider>(context, listen: false).addCartItem(
+                                          Product(
+                                            id: snapshot.data!['id'],
+                                            name: snapshot.data!['name'].toString(),
+                                            image: snapshot.data!['img_url'].toString(),
+                                            price: snapshot.data!['price'].toString(),
+                                            description: snapshot.data!['discrpition'].toString(),
+                                          ),
+                                        );
                                       },
                                       // ignore: prefer_const_constructors
                                       child: Text('Savatga qo\'shish'),
@@ -98,11 +112,24 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                                       splashColor: Colors.transparent,
                                       color: Colors.red,
                                       onPressed: () {
-                                        setState(() {
-                                          addFavorite(snapshot.data!['id']);
+                                        Provider.of<LikeProvider>(context, listen: false)
+                                            .addLikeItem(
+                                          Product(
+                                            id: int.parse(snapshot.data!['id'].toString()),
+                                            name: snapshot.data!['name'].toString(),
+                                            image: snapshot.data!['img_url'].toString(),
+                                            price: snapshot.data!['price'].toString(),
+                                            description: snapshot.data!['discrpition'].toString(),
+                                          ),
+                                        )
+                                            .then((value) {
+                                          print(value);
+                                          setState(() {
+                                            isFavorite = !isFavorite;
+                                          });
                                         });
                                       },
-                                      icon: Icon(snapshot.data!['like'] == false ? Icons.favorite_border : Icons.favorite),
+                                      icon: Icon(isFavorite == false ? Icons.favorite_border : Icons.favorite),
                                     )
                                   ],
                                 ),
